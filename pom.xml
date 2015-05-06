@@ -6,6 +6,7 @@
 	<version>0.0.2-SNAPSHOT</version>
 	<name>iarea</name>
 	<description>iarea</description>
+	<url>https://github.com/tokuhirom/iarea/</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
