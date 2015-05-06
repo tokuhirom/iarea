@@ -3,9 +3,6 @@ package me.geso.iarea;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * IArea data repository.
- */
 public interface IAreaRepository {
 	/**
 	 * Get list of regions
@@ -18,11 +15,17 @@ public interface IAreaRepository {
 	List<String> getPrefectures();
 
 	/**
-	 * Get area object by lat/lng.
+	 * Find IArea object by area code.
 	 *
-	 * @param latWGS84Degree latitude(緯度) in WGS84, Degree.
-	 * @param lngWGS84Degree longitude(経度) in WGS84, Degree.
-	 * @return iArea object for specified lat/lng.
+	 * @param areaCode area code
+	 * @return iArea object.
 	 */
-	Optional<IArea> getAreaByWgs84LatLng(double latWGS84Degree, double lngWGS84Degree);
+	Optional<IArea> findByAreaCode(String areaCode);
+
+	/**
+	 * Get all iArea objects.
+	 *
+	 * @return get all iArea objects
+	 */
+	List<IArea> getAll();
 }

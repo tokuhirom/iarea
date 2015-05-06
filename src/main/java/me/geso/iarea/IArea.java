@@ -8,13 +8,13 @@ public class IArea {
 	private String region;
 	private String prefecture;
 	private String name;
-	private String code;
+	private String areaCode;
 
-	public IArea(String region, String prefecture, String name, String code) {
+	public IArea(String region, String prefecture, String name, String areaCode) {
 		this.region = region;
 		this.prefecture = prefecture;
 		this.name = name;
-		this.code = code;
+		this.areaCode = areaCode;
 	}
 
 	/**
@@ -41,7 +41,7 @@ public class IArea {
 	/**
 	 * Get area code
 	 */
-	public String getCode() {
-		return code;
+	public String getAreaCode() {
+		return areaCode;
 	}
 }
