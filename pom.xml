@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>me.geso</groupId>
 	<artifactId>iarea</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>iarea</name>
 	<description>iarea</description>
 
@@ -16,7 +16,7 @@
 		<url>https://github.com/tokuhirom/iarea/</url>
 		<connection>scm:git:git://github.com/tokuhirom/iarea.git</connection>
 		<developerConnection>scm:git:git@github.com:tokuhirom/iarea.git</developerConnection>
-		<tag>iarea-0.0.1</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<developers>
