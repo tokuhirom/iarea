@@ -6,6 +6,8 @@ use 5.010000;
 use autodie;
 use Text::MicroTemplate::File;
 use FindBin;
+use File::Basename;
+use File::Path;
 
 package IArea {
     use Moo;
@@ -18,20 +20,36 @@ package IArea {
     has 'most_e' => (is => 'rw');
     has 'most_n' => (is => 'rw');
 
+    sub areacode {
+        my $self = shift;
+        return $self->area_id . $self->sub_area_id;
+    }
+
     sub set_meshs { $_[0]->{meshs} = $_[1] }
     sub meshs { shift->{meshs} }
+
+    sub all_meshcode {
+        [map { @$_ } @{shift->meshs}]
+    }
 }
 
 &main; exit;
 
 sub main {
     my @iareas = map { parse(slurp($_)) } glob("iareadata/*.txt");
-    my $mtf = Text::MicroTemplate::File->new(
-        include_path => [ $FindBin::Bin ],
-        use_cache    => 1,
-    );
-    spew('src/main/java/me/geso/geoutils/iarea/data/MeshCode2AreaCode.java',
-        $mtf->render_file('MeshCode2AreaCode.java.mt', \@iareas));
+    write_meshcode_properties(\@iareas);
+}
+
+sub write_meshcode_properties {
+    my $iareas = shift;
+
+    my $dest = 'src/main/resources/me/geso/iarea/meshcode.properties';
+    mkpath(dirname($dest));
+    open my $fh, '>', $dest;
+    for my $iarea (@$iareas) {
+        print {$fh} $iarea->areacode . '=' . join(',', @{$iarea->all_meshcode}) . "\n";
+    }
+    close $fh;
 }
 
 sub parse {

@@ -1,10 +1,10 @@
-all: src/main/java/me/geso/geoutils/iarea/data/MeshCode2AreaCode.java
+all: src/main/resources/me/geso/iarea/IAreaFinder/meshcode.properties
 
-src/main/java/me/geso/geoutils/iarea/data/MeshCode2AreaCode.java: author/iarea.pl
+src/main/resources/me/geso/iarea/IAreaFinder/meshcode.properties: author/iarea.pl
 	perl author/iarea.pl
 
 clean:
-	rm -f src/main/java/me/geso/geoutils/iarea/IArea.java src/main/java/me/geso/geoutils/data/MeshCode2AreaCode.java
+	rm -f src/main/resources/me/geso/iarea/IAreaFinder/meshcode.properties
 
 .PHONY: all clean
 
