@@ -44,4 +44,33 @@ public class IArea {
 	public String getAreaCode() {
 		return areaCode;
 	}
+
+	@Override
+	public boolean equals(final Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
+
+		final IArea iArea = (IArea)o;
+
+		if (region != null ? !region.equals(iArea.region) : iArea.region != null)
+			return false;
+		if (prefecture != null ? !prefecture.equals(iArea.prefecture) : iArea.prefecture != null)
+			return false;
+		if (name != null ? !name.equals(iArea.name) : iArea.name != null)
+			return false;
+		return !(areaCode != null ? !areaCode.equals(iArea.areaCode) : iArea.areaCode != null);
+
+	}
+
+	@Override
+	public int hashCode() {
+		int result = region != null ? region.hashCode() : 0;
+		result = 31 * result + (prefecture != null ? prefecture.hashCode() : 0);
+		result = 31 * result + (name != null ? name.hashCode() : 0);
+		result = 31 * result + (areaCode != null ? areaCode.hashCode() : 0);
+		return result;
+	}
+
 }
