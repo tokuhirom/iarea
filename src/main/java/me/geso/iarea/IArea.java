@@ -47,19 +47,24 @@ public class IArea {
 
 	@Override
 	public boolean equals(final Object o) {
-		if (this == o)
+		if (this == o) {
 			return true;
-		if (o == null || getClass() != o.getClass())
+		}
+		if (o == null || getClass() != o.getClass()) {
 			return false;
+		}
 
 		final IArea iArea = (IArea)o;
 
-		if (region != null ? !region.equals(iArea.region) : iArea.region != null)
+		if (region != null ? !region.equals(iArea.region) : iArea.region != null) {
 			return false;
-		if (prefecture != null ? !prefecture.equals(iArea.prefecture) : iArea.prefecture != null)
+		}
+		if (prefecture != null ? !prefecture.equals(iArea.prefecture) : iArea.prefecture != null) {
 			return false;
-		if (name != null ? !name.equals(iArea.name) : iArea.name != null)
+		}
+		if (name != null ? !name.equals(iArea.name) : iArea.name != null) {
 			return false;
+		}
 		return !(areaCode != null ? !areaCode.equals(iArea.areaCode) : iArea.areaCode != null);
 
 	}
